@@ -1,0 +1,29 @@
+glavnica = float(input())
+principal = glavnica
+lihva = 0.03
+period = int(input())
+srok = period
+lihva_total = 0
+interest_total = 0
+glavnica_period = glavnica / period
+principal_period = glavnica_period
+while True:
+    lihva_period = (glavnica_period * period) * lihva
+    lihva_total += lihva_period
+    period -= 1
+    # print(principal)
+    # print(lihva_period)
+    if period <= 0:
+        # print(lihva_total)
+        break
+print(f'Your total debt is {principal + lihva_total:.2f} lv.')
+while srok > 0:
+    interest_period = (principal_period * srok) * lihva
+    interest_total += interest_period
+    interest_remaining = lihva_total - interest_total
+    principal -= principal_period
+    print(f'{principal_period:.2f} lv principal paid')
+    print(f'{principal:.2f} lv principal left to pay')
+    print(f'{interest_period:.2f} lv interest paid')
+    print(f'{interest_remaining:.2f} lv interest left to pay')
+    srok -= 1
